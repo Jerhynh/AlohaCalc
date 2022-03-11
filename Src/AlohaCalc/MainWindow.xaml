@@ -1,0 +1,64 @@
+﻿<Window x:Class="AlohaCalc.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AlohaCalc"
+        mc:Ignorable="d"
+        Title="Aloha Surf Company - Closing Calculator | Version: 1.0.1"
+        Height="500" Width="900" Background="#212121"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <!--UPT-->
+        <Label Content="Units Per Transaction (UPT)" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+        <Label Content="Units Sold:" ToolTip="Subtract the number of transactions from the number sales to get this value." Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="73,48,0,0" Width="71"/>
+        <TextBox Name="UPTUnitsSold" TextChanged="UPTUnitsSold_TextChanged" HorizontalAlignment="Center" VerticalAlignment="Top" AcceptsReturn="False" AcceptsTab="False" Height="20" Width="152" Margin="0,51,0,0"/>
+
+        <Label Content="Transactions:" ToolTip="This value should be under the column labeled #Trans on the Hourly Sales Summary." Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="66,78,0,0" Width="78"/>
+        <TextBox Name="UPTTransactions" TextChanged="UPTTransactions_TextChanged" HorizontalAlignment="Center" VerticalAlignment="Top" AcceptsReturn="False" AcceptsTab="False" Height="20" Width="152" Margin="0,82,0,0"/>
+
+        <Label Content="UPT:" ToolTip="Units Per Transaction" Foreground="White" HorizontalAlignment="Left" Margin="105,130,0,87" Width="39" Height="25"/>
+        <TextBox GotFocus="UPTResult_GotFocus" Name="UPTResult" HorizontalAlignment="Center" IsReadOnly="True" AcceptsReturn="False" AcceptsTab="False" Height="20" Width="152" Margin="0,132,0,90"/>
+
+        <!--ADS-->
+        <Label Content="Average Dollars Spent (ADS)" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White"/>
+
+        <Label Content="Sales$ Total:" ToolTip="This value is listed on the Sales$ column of the Hourly Sales Summary." Grid.Row="0" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="73,48,0,0" Width="71"/>
+        <TextBox Name="ADSSalesTotal" TextChanged="ADSSalesTotal_TextChanged" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" AcceptsReturn="False" AcceptsTab="False" Height="20" Width="152" Margin="0,51,0,0"/>
+
+        <Label Content="Transactions:" ToolTip="This value should be under the column labeled #Trans on the Hourly Sales Summary." Grid.Row="0" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="66,78,0,0" Width="78"/>
+        <TextBox Name="ADSTransactions" TextChanged="ADSTransactions_TextChanged" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" AcceptsReturn="False" AcceptsTab="False" Height="20" Width="152" Margin="0,82,0,0"/>
+
+        <Label Content="ADS:" ToolTip="Average Dollars Spent" Grid.Row="0" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" Margin="105,130,0,87" Width="39" Height="25"/>
+        <TextBox GotFocus="ADSResult_GotFocus" Name="ADSResult" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" IsReadOnly="True" AcceptsReturn="False" AcceptsTab="False" Height="20" Width="152" Margin="0,132,0,90"/>
+
+        <!--YTD-->
+        <Label Content="Sales - Year To Date (Sales YTD)" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White"/>
+
+        <Label Content="Sales$ Total (Last Year):" ToolTip="This value is listed on the Sales$ column of the Profitability Report." Grid.Row="1" Grid.Column="0" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,48,0,0" Width="134"/>
+        <TextBox Name="YTDPreviousYear" TextChanged="YTDPreviousYear_TextChanged" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" AcceptsReturn="False" AcceptsTab="False" Height="20" Width="152" Margin="0,51,0,0"/>
+
+        <Label Content="Sales$ Total (Today):" ToolTip="This value should be under the column labeled Sales$ on the Hourly Sales Summary." Grid.Row="1" Grid.Column="0" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,78,0,0" Width="134"/>
+        <TextBox Name="YTDCurrent" TextChanged="YTDCurrent_TextChanged" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" AcceptsReturn="False" AcceptsTab="False" Height="20" Width="152" Margin="0,82,0,0"/>
+
+        <Label Content="YTD:" ToolTip="Average Dollars Spent" Grid.Row="1" Grid.Column="0" Foreground="White" HorizontalAlignment="Left" Margin="105,130,0,87" Width="39" Height="25"/>
+        <TextBox GotFocus="YTDResult_GotFocus" Name="YTDResult" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" IsReadOnly="True" AcceptsReturn="False" AcceptsTab="False" Height="20" Width="152" Margin="0,132,0,90"/>
+
+
+        <!--Credits-->
+        <Label Content="Credits" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
+        <Image Name="LogoImg" Grid.Column="1" Grid.Row="1" Margin="192,21,186,157"/>
+        <Label Content="Written by: Jerhyn Huey" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Margin="0,92,0,0"/>
+        <Label Content="Build Date: 2/2/2022" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Margin="0,111,0,0"/>
+        <TextBlock Text="Just a quick little calculator tool to help Aloha Surf Company employees get home quicker without sacrificing calculation accuracy. Quick Tips: Use the Tab key to quickly move between input boxes. Hover the mouse cursor over any of the labels to get more information." TextAlignment="Center" TextWrapping="Wrap" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="50,135,50,45"/>
+    </Grid>
+</Window>
